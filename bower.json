@@ -1,0 +1,18 @@
+{
+  "name": "dali",
+  "version": "0.1.0",
+  "authors": [
+    "Flavian Alexandru <alexandruflavian23@gmail.com>"
+  ],
+  "description": "JavaScript mini-framework with components re-used inside Websudos.",
+  "main": "dali.js",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/websudos/dali",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
