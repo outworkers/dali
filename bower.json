@@ -7,7 +7,7 @@
   "description": "JavaScript mini-framework with re-usable components",
   "main": "dali.js",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/websudos/dali",
+  "homepage": "https://github.com/websudos/dali",
   "dependencies": {
     "jquery": "2.1.3",
     "jsSHA": "1.6.0",
