@@ -155,3 +155,54 @@ dali.array.removeAt = function(arr, i) {
     // will be 1
     return dali.array.ARRAY_PROTOTYPE_.splice.call(arr, i, 1).length == 1;
 };
+
+
+dali.utils.namespace("dali.date");
+
+dali.date.MONTH_NAMES = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+];
+
+
+dali.date.getMonthName = function(date) {
+    return dali.date.MONTH_NAMES[date.getMonth()];
+};
+
+dali.date.displayDate = function(dateString) {
+    var timestamp = parseInt(dateString, 10);
+    var dt = new Date(timestamp);
+
+    var month = dali.date.getMonthName(dt);
+
+    return month + " " + dt.getFullYear();
+};
+
+dali.date.fromTimestamp = function(dateString) {
+    return new Date(parseInt(dateString, 10));
+};
+
+dali.utils.namespace("dali.array");
+
+dali.array.toArray = function(object) {
+
+    var arr = [];
+
+    for (var key in object) {
+        if (object.hasOwnProperty(key)) {
+            arr.push(object[key]);
+        }
+    }
+
+    return arr;
+};

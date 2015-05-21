@@ -37,22 +37,16 @@ dali.services.AlertService.prototype.success = function(message) {
 };
 
 dali.services.AlertService.prototype.expire_ = function(index) {
-
   var scope = this;
-
-  this.timeout_(function() {
-    scope.closeAlert(index);
-  }, 1750);
+  (function(i) {
+    scope.timeout_(function() {
+      scope.closeAlert(i);
+    }, 1700);
+  })(index);
 };
 
 dali.services.AlertService.prototype.addAlert = function(message) {
   this.alerts.push({msg: message});
-};
-
-dali.services.AlertService.prototype.displayAlerts = function(messages) {
-  for (var i = 0, len = messages.length; i < len; i++) {
-    this.error(messages[i]);
-  }
 };
 
 dali.services.AlertService.prototype.closeAlert = function(index) {
