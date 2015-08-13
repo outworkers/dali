@@ -104,6 +104,18 @@ dali.abstractMethod = function() {
     throw Error('unimplemented abstract method');
 };
 
+dali.s4 = function() {
+  return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+};
+
+dali.uuid = function() {
+
+  return dali.s4() + dali.s4() + '-' + dali.s4() + '-' + dali.s4() + '-' +
+      dali.s4() + '-' + dali.s4() + dali.s4() + dali.s4();
+};
+
 
 dali.utils.namespace("dali.maps");
 

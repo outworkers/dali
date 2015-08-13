@@ -1,7 +1,7 @@
 dali.utils.namespace("dali.services");
 
 dali.services.AlertService = function() {
-  this.alerts = [];
+  this.alerts = {};
 
   this.timeout_ = null;
 };
@@ -17,40 +17,42 @@ dali.services.AlertService.prototype.getAlerts = function() {
 };
 
 dali.services.AlertService.prototype.error = function(message) {
-  this.alerts.push({
+
+  var id = dali.uuid();
+
+  this.alerts[id] = {
     type: 'danger',
     msg: message,
     expired: false
-  });
+  };
 
-  this.expire_(this.alerts.length - 1);
+  this.expire_(id);
 };
 
 dali.services.AlertService.prototype.success = function(message) {
-  this.alerts.push({
+
+  var id = dali.uuid();
+
+  this.alerts[id] = {
     type: 'success',
     msg: message,
     expired: false
-  });
+  };
 
-  this.expire_(this.alerts.length - 1);
+  this.expire_(id);
 };
 
 dali.services.AlertService.prototype.expire_ = function(index) {
   var scope = this;
-  (function(i) {
+  (function(id) {
     scope.timeout_(function() {
-      scope.closeAlert(i);
+      scope.closeAlert(id);
     }, 1700);
   })(index);
 };
 
-dali.services.AlertService.prototype.addAlert = function(message) {
-  this.alerts.push({msg: message});
-};
-
-dali.services.AlertService.prototype.closeAlert = function(index) {
-  this.alerts.splice(index, 1);
+dali.services.AlertService.prototype.closeAlert = function(id) {
+  delete this.alerts[id];
 };
 
 alerts.factory('AlertService', ['$timeout', function($timeout) {
