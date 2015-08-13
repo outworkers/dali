@@ -187,6 +187,16 @@ dali.date.MONTH_NAMES = [
 ];
 
 
+dali.date.DAY_NAMES = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+];
+
 dali.date.getMonthName = function(date) {
     return dali.date.MONTH_NAMES[date.getMonth()];
 };
@@ -202,6 +212,10 @@ dali.date.displayDate = function(dateString) {
 
 dali.date.fromTimestamp = function(dateString) {
     return new Date(parseInt(dateString, 10));
+};
+
+dali.date.getDayName = function(index) {
+  return dali.date.DAY_NAMES[index];
 };
 
 dali.utils.namespace("dali.array");
