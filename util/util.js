@@ -214,6 +214,18 @@ dali.date.fromTimestamp = function(dateString) {
     return new Date(parseInt(dateString, 10));
 };
 
+
+dali.date.asTimestamp = function(dateString) {
+
+    if (dateString instanceof Date) {
+        return dateString.getTime();
+    } else if (isNaN(parseInt(dateString, 10))) {
+        return new Date(dateString).getTime();
+    } else {
+        return new Date(parseInt(dateString, 10));
+    }
+};
+
 dali.date.getDayName = function(index) {
   return dali.date.DAY_NAMES[index];
 };
