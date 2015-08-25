@@ -211,19 +211,24 @@ dali.date.displayDate = function(dateString) {
 };
 
 dali.date.fromTimestamp = function(dateString) {
+
+  if (angular.isString(dateString)) {
     return new Date(parseInt(dateString, 10));
+  } else if (!isNaN(parseFloat(dateString))) {
+    return new Date(dateString);
+  }
+
 };
 
 
 dali.date.asTimestamp = function(dateString) {
-
-    if (dateString instanceof Date) {
-        return dateString.getTime();
-    } else if (isNaN(parseInt(dateString, 10))) {
-        return new Date(dateString).getTime();
-    } else {
-        return new Date(parseInt(dateString, 10));
-    }
+  if (dateString instanceof Date) {
+    return dateString.getTime();
+  } else if (isNaN(parseInt(dateString, 10))) {
+    return new Date(dateString).getTime();
+  } else {
+    return new Date(parseInt(dateString, 10)).getTime();
+  }
 };
 
 dali.date.getDayName = function(index) {
@@ -234,13 +239,13 @@ dali.utils.namespace("dali.array");
 
 dali.array.toArray = function(object) {
 
-    var arr = [];
+  var arr = [];
 
-    for (var key in object) {
-        if (object.hasOwnProperty(key)) {
-            arr.push(object[key]);
-        }
+  for (var key in object) {
+    if (object.hasOwnProperty(key)) {
+      arr.push(object[key]);
     }
+  }
 
-    return arr;
+  return arr;
 };
