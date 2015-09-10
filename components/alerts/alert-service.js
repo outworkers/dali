@@ -51,6 +51,23 @@ dali.services.AlertService.prototype.expire_ = function(index) {
   })(index);
 };
 
+
+/**
+ * Checks whether or not the service has any alerts currently being displayed.
+ * This is generally used in conjunction with an "ng-show" directive to display
+ * the alert holder only when there are alerts to display.
+ * @return {boolean} True if there are alerts to display, false otherwise.
+ */
+dali.services.AlertService.prototype.nonEmpty = function() {
+  for (var key in this.alerts) {
+    if (this.alerts.hasOwnProperty(key)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 dali.services.AlertService.prototype.closeAlert = function(id) {
   delete this.alerts[id];
 };
