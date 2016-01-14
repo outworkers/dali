@@ -237,6 +237,11 @@ dali.date.getDayName = function(index) {
 
 dali.utils.namespace("dali.array");
 
+/**
+ * Converts an object to an array of elements formed by the object's values.
+ * @param {Object.<*>} object The input object.
+ * @return {Array.<*>} The resulting array, populated only by the values.
+ */
 dali.array.toArray = function(object) {
 
   var arr = [];
@@ -245,6 +250,51 @@ dali.array.toArray = function(object) {
     if (object.hasOwnProperty(key)) {
       arr.push(object[key]);
     }
+  }
+
+  return arr;
+};
+
+dali.utils.namespace("dali.tags");
+
+/**
+ * Parses a list of objects from the ngTagsInput plugin
+ * to a JavaScript array of strings removing all nesting created by the plugin.
+ *
+ * The ngTagsInput plugin nests the value of the tag input under the "text" property
+ * of the object it creates.
+ *
+ * @param {Object<*>} tagObject
+ */
+dali.tags.fromInput = function(tagObject) {
+  var arr = [];
+
+  for (var prop in tagObject) {
+    if (tagObject.hasOwnProperty(prop)) {
+      arr.push(tagObject[prop]);
+    }
+  }
+
+  return arr;
+};
+
+/**
+ * Parses a JavaScript array of strings to an input acceptable to the ngTagsInput plugin.
+ * This all nesting created by the plugin, and the result of this operation can
+ * directly be used as the ngModel of a tags directive to display already existing tags.
+ *
+ * The ngTagsInput plugin nests the value of the tag input under the "text" property
+ * of the object it creates.
+ *
+ * @param {Array<string>} tagList The list of tags, usually retrieved from a database.
+ */
+dali.tags.fromSource = function(tagList) {
+  var arr = [];
+
+  for (var i = 0, len = tagList; i < len; i++) {
+    arr.push({
+      "text": tagList[i]
+    })
   }
 
   return arr;
