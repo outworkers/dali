@@ -116,6 +116,14 @@ dali.uuid = function() {
       dali.s4() + '-' + dali.s4() + dali.s4() + dali.s4();
 };
 
+/**
+ * Returns true if the specified value is defined and not null.
+ * @param {?} obj Variable to test.
+ * @return {boolean} Whether variable is defined and not null.
+ */
+dali.isDefAndNotNull = function(obj) {
+  return typeof obj !== "undefined" && obj !== null;
+};
 
 dali.utils.namespace("dali.maps");
 
