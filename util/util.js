@@ -326,3 +326,14 @@ dali.string.isEmpty = function(obj) {
       dali.isDefAndNotNull(obj.length)
       && obj.length > 0;
 };
+
+/**
+ * Checks if a trimmed string is empty, e.g if a string has only spaces.
+ * @param {string} obj The string to check.
+ * @returns {boolean}
+ */
+dali.string.isTrimEmpty = function(obj) {
+  return dali.isDefAndNotNull(obj) &&
+      dali.string.isString(obj) &&
+      obj.trim().length > 0;
+};
