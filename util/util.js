@@ -307,3 +307,22 @@ dali.tags.fromSource = function(tagList) {
 
   return arr;
 };
+
+dali.utils.namespace("dali.string");
+
+dali.string.isString = function(obj) {
+  return typeof obj === "string" ||
+      Object.prototype.toString.call(obj) == "[object String]";
+};
+
+
+/**
+ * Function to check if a string is empty
+ * @param {string} obj Checks if a string is empty.
+ * @returns {boolean}
+ */
+dali.string.isEmpty = function(obj) {
+  return dali.isDefAndNotNull(obj) &&
+      dali.isDefAndNotNull(obj.length)
+      && obj.length > 0;
+};
