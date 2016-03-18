@@ -16,12 +16,11 @@ dali.services.AlertService.prototype.getAlerts = function() {
   return this.alerts_;
 };
 
-dali.services.AlertService.prototype.error = function(message) {
-
+dali.services.AlertService.prototype.addAlert = function(alertType, message) {
   var id = dali.uuid();
 
   this.alerts[id] = {
-    type: 'danger',
+    type: alertType,
     msg: message,
     expired: false
   };
@@ -29,17 +28,20 @@ dali.services.AlertService.prototype.error = function(message) {
   this.expire_(id);
 };
 
+dali.services.AlertService.prototype.warning = function(message) {
+  this.addAlert("warning", message);
+};
+
+dali.services.AlertService.prototype.error = function(message) {
+ this.addAlert("error", message);
+};
+
 dali.services.AlertService.prototype.success = function(message) {
+  this.addAlert("success", message);
+};
 
-  var id = dali.uuid();
-
-  this.alerts[id] = {
-    type: 'success',
-    msg: message,
-    expired: false
-  };
-
-  this.expire_(id);
+dali.services.AlertService.prototype.info = function(message) {
+  this.addAlert("info", message);
 };
 
 dali.services.AlertService.prototype.expire_ = function(index) {
