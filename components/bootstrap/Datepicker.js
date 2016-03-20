@@ -35,6 +35,14 @@ dali.bootstrap.Datepicker.prototype.days = function(offset) {
   return this;
 };
 
+dali.bootstrap.Datepicker.prototype.days = function(offset) {
+  var off = offset || 1;
+  var target = new Date(this.dt);
+  target.setDate(this.dt.getDate() + off);
+  this.dt = target;
+  return this;
+};
+
 dali.bootstrap.Datepicker.prototype.today = function() {
   this.dt = new Date();
   return this;
@@ -42,6 +50,13 @@ dali.bootstrap.Datepicker.prototype.today = function() {
 
 dali.bootstrap.Datepicker.prototype.yesterday = function() {
   this.today().days(-1);
+};
+
+dali.bootstrap.Datepicker.prototype.open = function($event) {
+  $event.preventDefault();
+  $event.stopPropagation();
+  this.opened = true;
+  return this;
 };
 
 dali.bootstrap.Datepicker.prototype.clear = function() {
