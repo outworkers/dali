@@ -48,7 +48,7 @@ dali.services.AlertService.prototype.expire_ = function(index) {
   var scope = this;
   (function(id) {
     scope.timeout_(function() {
-      scope.closeAlert(id);
+      scope.dismissAlert(id);
     }, 1700);
   })(index);
 };
@@ -70,10 +70,10 @@ dali.services.AlertService.prototype.nonEmpty = function() {
   return false;
 };
 
-dali.services.AlertService.prototype.closeAlert = function(id) {
+dali.services.AlertService.prototype.dismissAlert = function(id) {
   delete this.alerts[id];
 };
 
-alerts.factory('AlertService', ['$timeout', function($timeout) {
+dali.bootstrap.alerts.factory('AlertService', ['$timeout', function($timeout) {
   return dali.services.AlertService.getInstance().setTimeout($timeout);
 }]);

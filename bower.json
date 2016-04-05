@@ -1,6 +1,6 @@
 {
   "name": "dali",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "authors": [
     "Flavian Alexandru <alexandruflavian23@gmail.com>"
   ],
@@ -11,7 +11,7 @@
   "dependencies": {
     "jsSHA": "2.0.2",
     "angular": "1.4.8",
-    "angular-bootstrap": "0.14.3"
+    "angular-bootstrap": "1.1.0"
   },
   "ignore": [
     "**/.*",

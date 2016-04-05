@@ -338,3 +338,31 @@ dali.string.isNonEmptyTrim = function(obj) {
       dali.string.isString(obj) &&
       obj.trim().length > 0;
 };
+
+dali.utils.namespace("dali.math");
+
+/**
+ * Size object used for anything that has a width and height.
+ * @param {!number} width The width of the size dimension.
+ * @param {!number} height The height of the size dimension
+ * @constructor
+ */
+dali.math.Size = function(width, height) {
+  this.width_ = width || 0;
+  this.height_ = height || 0;
+};
+
+dali.math.Size.prototype.getWidth = function() {
+  return this.width_;
+};
+
+dali.math.Size.prototype.getHeight = function() {
+  return this.height_;
+};
+
+dali.math.Size.prototype.multiply = function(scaler) {
+  return new dali.math.Size(
+      this.width_ * scaler,
+      this.height_ * scaler
+  );
+};
