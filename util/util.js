@@ -125,8 +125,7 @@ dali.isDefAndNotNull = function(obj) {
   return typeof obj !== "undefined" && obj !== null;
 };
 
-dali.utils.namespace("dali.maps");
-
+dali.maps = {};
 
 dali.maps.getCity = function(result) {
     for (var i = 0, len = result["address_components"].length; i < len; i++) {
@@ -153,7 +152,7 @@ dali.maps.getCountry = function(result) {
 
 };
 
-dali.utils.namespace("dali.array");
+dali.array = {};
 
 /**
  * Reference to the original {@code Array.prototype}.
@@ -177,7 +176,7 @@ dali.array.removeAt = function(arr, i) {
 };
 
 
-dali.utils.namespace("dali.date");
+dali.date = {};
 
 dali.date.MONTH_NAMES = [
     "January",
@@ -243,8 +242,6 @@ dali.date.getDayName = function(index) {
   return dali.date.DAY_NAMES[index];
 };
 
-dali.utils.namespace("dali.array");
-
 /**
  * Converts an object to an array of elements formed by the object's values.
  * @param {Object.<*>} object The input object.
@@ -263,7 +260,7 @@ dali.array.toArray = function(object) {
   return arr;
 };
 
-dali.utils.namespace("dali.tags");
+dali.tags = {};
 
 /**
  * Parses a list of objects from the ngTagsInput plugin
@@ -308,7 +305,7 @@ dali.tags.fromSource = function(tagList) {
   return arr;
 };
 
-dali.utils.namespace("dali.string");
+dali.string = {};
 
 dali.string.isString = function(obj) {
   return typeof obj === "string" ||
@@ -339,7 +336,7 @@ dali.string.isNonEmptyTrim = function(obj) {
       obj.trim().length > 0;
 };
 
-dali.utils.namespace("dali.math");
+dali.math = {};
 
 /**
  * Size object used for anything that has a width and height.
