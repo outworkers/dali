@@ -33,7 +33,11 @@ dali.services.AlertService.prototype.warning = function(message) {
 };
 
 dali.services.AlertService.prototype.error = function(message) {
- this.addAlert("error", message);
+ this.addAlert("danger", message);
+};
+
+dali.services.AlertService.prototype.danger = function(message) {
+  this.addAlert("danger", message);
 };
 
 dali.services.AlertService.prototype.success = function(message) {
