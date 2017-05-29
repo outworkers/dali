@@ -1,3 +1,3 @@
-/**
- * Created by flavian on 25/08/2015.
- */
+it('should demonstrate using when (200 status)', inject(function($http) {
+  console.log("test should suceed");
+});
