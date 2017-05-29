@@ -2,3 +2,4 @@
 .idea/
 .idea-modules/
 *.iml
+bower_components/

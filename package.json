@@ -1,0 +1,26 @@
+{
+  "name": "dali",
+  "version": "1.4.0",
+  "authors": [
+    "Flavian Alexandru <flavian@outworkers.com>"
+  ],
+  "description": "JavaScript mini-framework with re-usable components",
+  "main": "dali.js",
+  "license": "MIT",
+  "homepage": "https://github.com/outworkers/dali",
+  "dependencies": {
+    "jsSHA": "2.0.2",
+    "angular": "1.6.4",
+    "angular-ui-bootstrap": "2.5.0"
+  },
+  "devDevepencies": {
+    "mocha": "3.4.2"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
